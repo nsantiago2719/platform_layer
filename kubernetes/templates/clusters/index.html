@@ -2,12 +2,35 @@
 
 
 {% block content %}
-<table>
-  <th>ID</th>
-  <th>Cluster Name</th>
-  {%for cluster in cluster_list %}
-    <td>{{ cluster.id }}</td>
-    <td>{{ cluster.name }}</td>
-  {% endfor %}
-</table>
+  <style>
+    .page {
+      display: grid;
+      grid-template-columns: [first] 150px  [line-2] auto [end];
+      grid-gap: 10px;
+    }
+    .sidebar {
+      grid-column-start: first;
+      grid-column-end: line-2;
+    }
+  </style>
+
+  <div class="page">
+    <div class="sidebar">
+      {% include 'cluster_sidebar.html' %}
+    </div>
+    <div>
+      {% if cluster_list %}
+        <table>
+          <th>ID</th>
+          <th>Cluster Name</th>
+          {%for cluster in cluster_list %}
+            <td>{{ cluster.id }}</td>
+            <td>{{ cluster.name }}</td>
+          {% endfor %}
+        </table>
+      {% else %}
+        {% include 'empty.html' %}
+      {% endif %}
+    </div>
+  </div>
 {% endblock %}
