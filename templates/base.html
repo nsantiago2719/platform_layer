@@ -7,10 +7,29 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/themes/light.css"
     />
+    <style>
+      body {
+        margin: 0 0;
+      }
+      .container {
+        display: grid;
+        grid-template-columns: [first] 25%  [line-2] auto [line-3] 25% [end];
+      }
+
+      .content {
+        grid-column-start: line-2;
+        grid-column-end: line-3;
+      }
+    </style>
   </head>
   <body>
-    {% block content %}
-    {% endblock %}
+    {% include 'header.html' %}
+    <div class="container" >
+      <div class="content">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
     <script
       type="module"
       src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/shoelace-autoloader.js"

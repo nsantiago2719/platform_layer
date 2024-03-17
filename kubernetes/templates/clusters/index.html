@@ -2,8 +2,12 @@
 
 
 {% block content %}
-{%for cluster in cluster_list %}
-  Cluster ID: {{ cluster.id }}
-  Cluster Name: {{ cluster.name }}
-{% endfor %}
+<table>
+  <th>ID</th>
+  <th>Cluster Name</th>
+  {%for cluster in cluster_list %}
+    <td>{{ cluster.id }}</td>
+    <td>{{ cluster.name }}</td>
+  {% endfor %}
+</table>
 {% endblock %}

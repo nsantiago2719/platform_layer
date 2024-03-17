@@ -1,0 +1,48 @@
+<style>
+.header {
+  display: grid;
+  background-color: var(--sl-color-emerald-700);
+  grid-template-columns: [first] 25%  [l-2] auto [l-3] 25% [end];
+}
+
+.menu-list {
+  margin: 0 0;
+}
+.inner-header {
+  grid-column-start: l-2;
+  grid-column-end: l-3;
+  text-align: right;
+  ul li {
+    list-style-type: none;
+    margin: 20px 5px;
+    a {
+      text-decoration: none;
+      color: white;
+    }
+    a: visited {
+      color: white;
+    }
+  }
+}
+</style>
+<div class="header">
+  <div class="inner-header">
+    <ul class="menu-list">
+      <li class="item">
+        <sl-dropdown id="apps-menu" placement="bottom-end">
+          <a slot="trigger" href="#">Apps</a>
+          <sl-menu style="width: 200px; text-align: left;">
+            <sl-menu-label>Cluster Management</sl-menu-label>
+            <sl-menu-item value="eks">EKS</sl-menu-item>
+            <sl-menu-item value="ecs">ECS</sl-menu-item>
+            <sl-menu-item value="aks">AKS</sl-menu-item>
+            <sl-menu-label>Cloud Providers</sl-menu-label>
+            <sl-menu-item value="aws">AWS</sl-menu-item>
+            <sl-menu-item value="gcp">GCP</sl-menu-item>
+            <sl-menu-item value="azure">Azure</sl-menu-item>
+          </sl-menu>
+        </sl-dropdown>
+      </li>
+    </ul>
+  </div>
+</div>
