@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{%for cluster in cluster_list %}
+  Cluster ID: {{ cluster.id }}
+  Cluster Name: {{ cluster.name }}
+{% endfor %}
+{% endblock %}

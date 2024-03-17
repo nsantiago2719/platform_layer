@@ -1,5 +1,11 @@
-from django.http import HttpResponse
+from django.shortcuts import render
+
+from .models import Cluster
 
 
 def index(request):
-    return HttpResponse("Hello, welcome to Django")
+    clusters = Cluster.objects.order_by("id")
+    context = {
+        "cluster_list": clusters,
+    }
+    return render(request, "clusters/index.html", context)
