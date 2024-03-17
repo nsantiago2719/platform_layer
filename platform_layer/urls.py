@@ -1,3 +1,5 @@
+from django.urls import include, path
+
 """
 URL configuration for platform_layer project.
 
@@ -15,4 +17,4 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-urlpatterns = []
+urlpatterns = [path("kubernetes/", include("kubernetes.urls"))]
